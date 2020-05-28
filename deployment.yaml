@@ -18,3 +18,19 @@ spec:
   selector:
     matchLabels:
       app: ohif
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ohif
+  namespace: kube-ops
+  labels:
+    app: ohif
+spec:
+  ports:
+  - port: 3000
+    targetPort: 80
+  selector:
+    app: ohif
+
