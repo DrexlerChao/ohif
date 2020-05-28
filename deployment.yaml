@@ -29,7 +29,7 @@ metadata:
     app: ohif
 spec:
   ports:
-  - port: 3000
+  - port: 4000
     targetPort: 80
   selector:
     app: ohif
