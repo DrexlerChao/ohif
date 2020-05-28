@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ohif
+  namespace: kube-ops
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ohif
+    spec:
+      containers:
+        - name: ohif
+          image: ohif/viewer:latest
+          ports:
+            - containerPort: 80
+  selector:
+    matchLabels:
+      app: ohif
