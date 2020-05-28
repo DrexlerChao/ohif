@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: ohif
-          image: ohif/viewer:latest
+          image: ohif/viewer
           ports:
             - containerPort: 80
   selector:
