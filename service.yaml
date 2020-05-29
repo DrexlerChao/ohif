@@ -5,10 +5,10 @@ metadata:
   name: ohif-service
   namespace: kube-ops
   labels:
-    app: OHIFdemo
+    app: ohif
 spec:
   selector:
-    app: OHIFdemo
+    app: ohif
   type: NodePort
   ports:
   - name: web
