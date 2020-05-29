@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ohif-demo-pod
+  labels:
+    app: demoApp
+spec:
+  containers:
+    - name: ohif-demo-container
+      image: ohif/viewer
+      ports:
+        - containerPort: 80
