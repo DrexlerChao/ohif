@@ -2,12 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ohif-service
+  namespace: kube-ops
+  labels:
+    app: ohif
 spec:
   selector:
     app: ohif
   type: NodePort
-    ports:
-      - protocol: TCP
-        port: 3001
-        targetPort: 3000
-        nodePort: 30390
+  ports:
+    - protocol: TCP
+      port: 3001
+      targetPort: 3000
+      nodePort: 30390
