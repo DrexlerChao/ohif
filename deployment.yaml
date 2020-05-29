@@ -1,21 +1,10 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: ohif-pod
-  labels:
-    app: OHIFdemo
-spec:
-  containers:
-    - name: ohif-viewer
-      image: ohif/viewer
-      ports:
-        - containerPort: 3000
-
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ohif-deployment
+  labels:
+    app: OHIFdemo
 spec:
   replicas: 1
   template:
