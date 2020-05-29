@@ -20,21 +20,3 @@ spec:
         - containerPort: 3000
           name: web
           protocol: TCP
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ohif-service
-  namespace: kube-ops
-  labels:
-    app: OHIFdemo
-spec:
-  selector:
-    app: OHIFdemo
-  type: NodePort
-  ports:
-  - name: web
-    port: 3000
-    targetPort: web
-    nodePort: 30010
