@@ -8,10 +8,10 @@ spec:
   template:
     metadata:
       labels:
-        app: OHIFdemo
+        app: ohif
     spec:
       terminationGracePeriodSeconds: 10
-      serviceAccount: OHIFdemo
+      serviceAccount: ohif
       containers:
       - name: ohif-viewer
         image: ohif/viewer
