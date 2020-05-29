@@ -4,6 +4,9 @@ metadata:
   name: ohif
   namespace: kube-ops
 spec:
+  selector:
+    matchLabels:
+      app: ohif
   template:
     metadata:
       labels:
