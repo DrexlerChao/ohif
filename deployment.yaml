@@ -1,21 +1,40 @@
-apiVersion: apps/v1
+---
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: ohif-deployment
-  labels:
-    app: OHIFdemo
+  namespace: kube-ops
 spec:
-  replicas: 1
   template:
     metadata:
       labels:
         app: OHIFdemo
     spec:
+      terminationGracePeriodSeconds: 10
+      serviceAccount: OHIFdemo
       containers:
-        - name: ohif-viewer
-          image: ohif/viewer
-          ports:
-            - containerPort: 3000
+      - name: ohif-viewer
+        image: ohif/viewer
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+          name: web
+          protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ohif-service
+  namespace: kube-ops
+  labels:
+    app: OHIFdemo
+spec:
   selector:
-    matchLabels:
-      app: OHIFdemo
+    app: OHIFdemo
+  type: NodePort
+  ports:
+  - name: web
+    port: 3000
+    targetPort: web
+    nodePort: 30010
