@@ -10,10 +10,10 @@ spec:
         app: demoApp
     spec:
       containers:
-        - name: kubernetes-demo-container
+        - name: ohif-container
           image: ohif/viewer
           ports:
-            - containerPort: 3000
+            - containerPort: 80
   selector:
     matchLabels:
       app: demoApp
